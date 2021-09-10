@@ -1,0 +1,27 @@
+@import './variable.styl'
+@import './fontface-oppo.styl'
+@import './fontface-oneplus.styl'
+@import './normalize.styl'
+@import './overwrites-oppo.styl'
+@import './overwrites-oneplus.styl'
+@import './grid.styl'
+
+// @import './slick.styl' // 用到的页面加到 pages/*/index.styl 里
+body
+  &.no-scroll
+    overflow-y hidden
+
+  &.zn--body-fixed
+    position fixed
+
+#main-wrapper
+  position relative
+
+.zn--wrapper
+  @import './global/index.styl'
+
+  img:not([src]):not([srcset])
+    visibility hidden
+
+  .g--popup-user
+    display none

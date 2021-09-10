@@ -1,0 +1,34 @@
+if (__OPPO__)
+  @font-face
+    font-family 'OPPOSans-super'
+    src url('~@@/fonts/OPPOSansSuper-Medium.woff') format('woff'), url('~@@/fonts/OPPOSansSuper-Medium.ttf') format('truetype')
+    font-style normal
+    font-weight 400
+
+  @font-face
+    font-family 'OPPOSans-super'
+    src url('~@@/fonts/OPPOSansSuper-Bold.woff') format('woff'), url('~@@/fonts/OPPOSansSuper-Bold.ttf') format('truetype')
+    font-style normal
+    font-weight 700
+
+  .zn--wrapper
+    sup
+      font-size 1em
+      line-height 1
+      position relative
+      vertical-align baseline
+      top -.2em
+      font-family OPPOSans-super
+      font-weight 400
+
+    b sup,
+    sup b,
+    strong sup,
+    sup strong
+      font-weight 700
+
+  .g--sup-m
+    font-weight 400
+
+  .g--sup-b
+    font-weight 700

@@ -1,0 +1,129 @@
+mixin navbar({ products = [{ active: true, name: 'Reno5' }], links = [], theme = 'dark' } = {})
+  if (!__AEM__)
+    // 只应在 zn 测试环境出现
+    // 搬运自 oppo-aem-front 脚手架
+    style.
+      .oppo-navbar * {
+        font-family: OPPOSans-Ver2-Regular;
+        font-weight: 550;
+      }
+
+    .oppo-navbar
+      nav#navbar(data-theme=theme data-theme-default=theme)
+        .container
+          .mask.g--ls-hidden
+          // mb端产品tab
+          ul.selector.product-selector.g--ls-hidden(data-selector='link')
+            li.selected
+              a A91 Pro
+            li.indicator
+              svg.arrow(width='14px' height='14px' viewbox='0 0 14 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                g
+                  path(d='M4.29289322,10.2928932 C3.90236893,10.6834175 3.90236893,11.3165825 4.29289322,11.7071068 C4.68341751,12.0976311 5.31658249,12.0976311 5.70710678,11.7071068 L10.4142136,7 L5.70710678,2.29289322 C5.31658249,1.90236893 4.68341751,1.90236893 4.29289322,2.29289322 C3.90236893,2.68341751 3.90236893,3.31658249 4.29289322,3.70710678 L7.58578644,7 L4.29289322,10.2928932 Z')
+          // mb端模块tab
+          ul.selector.link-selector.g--ls-hidden(data-selector='link')
+            li.selected
+              a Overview
+            li.indicator
+              svg.arrow(width='14px' height='14px' viewbox='0 0 14 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink')
+                g
+                  path(d='M4.29289322,10.2928932 C3.90236893,10.6834175 3.90236893,11.3165825 4.29289322,11.7071068 C4.68341751,12.0976311 5.31658249,12.0976311 5.70710678,11.7071068 L10.4142136,7 L5.70710678,2.29289322 C5.31658249,1.90236893 4.68341751,1.90236893 4.29289322,2.29289322 C3.90236893,2.68341751 3.90236893,3.31658249 4.29289322,3.70710678 L7.58578644,7 L4.29289322,10.2928932 Z')
+          // 产品tab
+          ul.products
+            each product, i in products
+              if (i > 0)
+                li.divider
+                  span |
+              li.product
+                a(
+                  class=parseClasses({ active: product.active })
+                  href=(product.active && "javascript:;" || "https://www.oppo.com/")
+                  )!= product.name
+          // 模块tab
+          .linkwrapper
+            ul.links.module
+              li.link.pc.hightlight
+                a(href='#') Home
+              each link, i in links
+                li.link.post
+                  if (link.anchor)
+                    a(href=link.anchor data-link=link.anchor)!= link.name
+                  else
+                    a(href=(link.href || 'https://www.oppo.com/'))!= link.name
+          ul.links.page
+            li.link.page
+              a(href='www.oppo.com') Specs
+            li.link.page
+              a(href='#') Compare
+            li.link.page
+              a(href='#') 3D Experience
+          // 购买按钮 开始
+          ul.buttons(data-theme='green')
+            li.button.buy
+              a(href='#link.button-buy') !{__ZH__ ? '立即购买' : 'Buy Now'}
+          // 购买按钮 结束
+          // online-store模块 开始
+          #online-store
+            .mask
+            .store-container
+              .store-page
+                img.close-button.lazyload(data-src='https://image.oppo.com/content/dam/oppo/common/mkt/reno5/Close.svg')
+                .mb-tab
+                  a &#x5B98;&#x65B9;
+                  a &#x7B2C;&#x4E09;&#x65B9;&#x6E20;&#x9053;
+                .title-area
+                  a Online store
+                .store-content
+                  .store-list
+                    .store-title MNO
+                    .store-wrap
+                      a.store(data-type='shops2' href='https://shop.ee.co.uk/mobile-phones/pay-monthly/oppo-reno-4-pro-5g-256gb-galactic-blue/details')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/EE_118x80.jpg' title='virgin')
+                    .store-wrap
+                      a.store(data-type='shops1' href='https://www.vodafone.co.uk/mobile/phones/pay-monthly-contracts/oppo/reno4-pro-5g')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/Vodafone_118x80.jpg')
+                    .store-wrap
+                      a.store(data-type='shops2' href='https://oppomobiles.co.uk/oppo-reno-4-pro-5g.html')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/OPPO_118x80.jpg')
+                    .store-wrap
+                      a.store(data-type='shops1' href='https://www.carphonewarehouse.com/oppo/reno-4-pro.html')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/Currys_118x80.jpg')
+                    .store-wrap
+                      a.store(data-type='shops1' href='https://www.amazon.co.uk/dp/B08HZ76VQR')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/Amazon_118x80.jpg')
+                    .store-wrap
+                      a.store(data-type='shops1' href='https://www.o2.co.uk/shop/oppo/reno4-pro-5g')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/O2_118x80.jpg')
+                    .store-wrap
+                      a.store(data-type='shops1' href='https://www.virginmedia.com/mobile/pay-monthly/oppo/reno4-pro')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/Virgin_118x80.jpg')
+                    .store-wrap
+                      a.store(data-type='shops1' href='https://www.johnlewis.com/oppo-reno-4-pro-smartphone-android-12gb-ram-6-5-inch-5g-sim-free-256gb/blue/p5189634')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/JLP_118x80-v.jpg')
+                    .store-wrap
+                      a.store(data-type='shops1' href='https://www.very.co.uk/oppo-reno4-pro-galactic-blue/1600533792.prd')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/Very_118x80-v.jpg')
+                    .store-wrap
+                      a.store(data-type='shops1' href='https://www.very.co.uk/oppo-reno4-pro-galactic-blue/1600533792.prd')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/Very_118x80-v.jpg')
+                    .store-wrap
+                      a.store(data-type='shops1' href='https://www.very.co.uk/oppo-reno4-pro-galactic-blue/1600533792.prd')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/Very_118x80-v.jpg')
+                    .store-wrap
+                      a.store(data-type='shops1' href='https://www.very.co.uk/oppo-reno4-pro-galactic-blue/1600533792.prd')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/Very_118x80-v.jpg')
+                    .store-title MNO
+                    .store-wrap
+                      a.store(data-type='shops2' href='https://www.very.co.uk/oppo-reno4-pro-galactic-blue/1600533792.prd')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/Very_118x80-v.jpg')
+                    .store-wrap
+                      a.store(data-type='shops2' href='https://www.very.co.uk/oppo-reno4-pro-galactic-blue/1600533792.prd')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/Very_118x80-v.jpg')
+                    .store-wrap
+                      a.store(data-type='shops2' href='https://www.very.co.uk/oppo-reno4-pro-galactic-blue/1600533792.prd')
+                        img.lazyload(data-src='https://image.oppo.com/content/dam/oppo/uk/mkt/onlinestore/renoseries/Very_118x80-v.jpg')
+                  .remarks
+                    ul
+                      li
+                        | &#x5907;&#x6CE8;&#xFF1A;&#x4E3A;&#x6539;&#x8FDB;&#x7528;&#x6237;&#x4F53;&#x9A8C;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;Cookies&#x548C;&#x7B2C;&#x4E09;&#x65B9;&#x5206;&#x6790;&#x5DE5;&#x5177;&#x5206;&#x6790;&#x7528;&#x6237;&#x884C;&#x4E3A;&#xFF0C;&#x7EE7;&#x7EED;&#x8BBF;&#x95EE;&#x5373;&#x8868;&#x793A;&#x60A8;&#x540C;&#x610F;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x3002;&#x67E5;&#x770B;&#x9690;&#x79C1;&#x653F;&#x7B56;&#xFF0C;&#x7EE7;&#x7EED;&#x8BBF;&#x95EE;&#x5373;&#x8868;&#x793A;&#x60A8;&#x540C;&#x610F;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x3002;&#x67E5;&#x770B;&#x9690;&#x79C1;&#x653F;&#x7B56;
+          // online-store模块 结束

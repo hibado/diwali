@@ -1,0 +1,29 @@
+.center
+  margin-left auto
+  margin-right auto
+  text-align center
+  align-self center
+
+// 单一内容，居中对齐
+.center-content
+  display flex
+  justify-content center
+  align-items center
+
+.abs.center-hor
+  left 50%
+  transform translateX(-50%)
+
+.abs.center-ver
+  top 50%
+  transform translateY(-50%)
+
+.flex.center-ver
+  align-items center
+  & > .wrapper
+    width 100%
+
+.flex.center-hor
+  justify-content center
+  & > .wrapper
+    height 100%

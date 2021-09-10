@@ -1,0 +1,13 @@
+mixin videoConverter({ videoClass = 'g--pt-hidden', videoSrc, loop, canvasClass = 'g--ls-hidden', canvasFPS = '24', canvasMode = '0' })
+  .g--video-converter&attributes(attributes)
+    .wrapper
+      video.video(
+        class=videoClass
+        data-src=videoSrc
+        muted
+        playsinline
+        loop=((loop !== false && loop !== undefined) ? 'loop' : undefined)
+      )
+      if block
+        canvas.video(class=canvasClass data-fps=canvasFPS data-mode=canvasMode)
+          block

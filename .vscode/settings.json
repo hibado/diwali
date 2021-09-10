@@ -1,0 +1,67 @@
+{
+  "git.ignoreLimitWarning": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "eslint.validate": ["html", "javascript", "typescript"],
+  "languageStylus.useSeparator": false,
+  "cSpell.words": [
+    "Modernizr",
+    "ONEPLUS",
+    "OPPO",
+    "Oynn",
+    "Webp",
+    "browserslist",
+    "docx",
+    "figurecaption",
+    "heytap",
+    "lazyload",
+    "oppostr",
+    "pptx",
+    "regl",
+    "stroppo",
+    "zhinan"
+  ],
+  "stylusSupremacy.alwaysUseExtends": true,
+  "stylusSupremacy.alwaysUseImport": true,
+  "stylusSupremacy.alwaysUseNoneOverZero": true,
+  "stylusSupremacy.alwaysUseZeroWithoutUnit": true,
+  "stylusSupremacy.ignoreFiles": ["vender/**"],
+  "stylusSupremacy.insertColons": false,
+  "stylusSupremacy.insertLeadingZeroBeforeFraction": false,
+  "stylusSupremacy.insertSemicolons": false,
+  "stylusSupremacy.preserveNewLinesBetweenPropertyValues": true,
+  "stylusSupremacy.quoteChar": "'",
+  "stylusSupremacy.reduceMarginAndPaddingValues": true,
+  "stylusSupremacy.selectorSeparator": ",\n",
+  "files.trimTrailingWhitespace": true,
+  "i18n-ally.localesPaths": ["locales"],
+  "i18n-ally.displayLanguage": "zh",
+  "i18n-ally.namespace": true,
+  "i18n-ally.pathMatcher": "{namespaces}/{locale}.yaml",
+  "i18n-ally.readonly": true,
+  "i18n-ally.usage.scanningIgnore": [
+    "vender",
+    "node_modules",
+    "scripts",
+    "build",
+    "dist",
+    "config",
+    ".cache"
+  ],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.annotationInPlace": false,
+  "i18n-ally.enabledFrameworks": ["custom", "i18next"],
+  "i18n-ally.dirStructure": "file",
+  "i18n-ally.enabledParsers": ["yaml"],
+  "saveAndRun": {
+    "commands": [
+      {
+        "match": "src/pages/[^\\/]+/\\.env\\.yaml",
+        "cmd": "yarn babel ${workspaceFolder}/scripts/gen-env-declarations.js ${file}",
+        "useShortcut": false,
+        "silent": false
+      }
+    ]
+  }
+}

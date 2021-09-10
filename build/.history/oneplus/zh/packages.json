@@ -1,0 +1,55 @@
+[
+  {
+    "id": "1629870840721",
+    "mode": "complete",
+    "version": "1.0.0",
+    "createdAt": "2021-08-25T13:54:06.067+0800",
+    "assets": [
+      "assets/OPPOSansSuper-Medium-c23c36.woff",
+      "assets/OPPOSansSuper-Bold-3612bd.woff",
+      "assets/OPPOSansSuper-Bold-37942b.ttf",
+      "assets/OPPOSansSuper-Medium-e71c7a.ttf",
+      "main-b6d8a8fc558c58d8625e.css",
+      "main-5d0c744f1f48e3a9a16e.js",
+      "main-dfbb52ebb5be47b8b0db.html"
+    ]
+  },
+  {
+    "id": "1629873033350",
+    "mode": "complete",
+    "version": "2.0.0",
+    "createdAt": "2021-08-25T14:30:43.564+0800",
+    "assets": [
+      "assets/stars-1e0b81.jpg.webp",
+      "assets/stars-1e0b81.jpg",
+      "assets/stars-696206.jpg.webp",
+      "assets/stars-696206.jpg",
+      "assets/stars-46f872.jpg.webp",
+      "assets/stars-46f872.jpg",
+      "assets/OPPOSansSuper-Bold-3612bd.woff",
+      "assets/OPPOSansSuper-Medium-e71c7a.ttf",
+      "assets/OPPOSansSuper-Bold-37942b.ttf",
+      "assets/OPPOSansSuper-Medium-c23c36.woff",
+      "main-b6d8a8fc558c58d8625e.css",
+      "main-2f0c897a2d349af30985.js",
+      "main-162c081eb2b5b9116fb7.html"
+    ]
+  },
+  {
+    "id": "1629873185879",
+    "mode": "complete",
+    "version": "3.0.0",
+    "createdAt": "2021-08-25T14:33:12.147+0800",
+    "assets": [
+      "assets/stars-1e0b81.jpg.webp",
+      "assets/stars-1e0b81.jpg",
+      "assets/stars-696206.jpg.webp",
+      "assets/stars-696206.jpg",
+      "assets/stars-46f872.jpg.webp",
+      "assets/stars-46f872.jpg",
+      "main-da2f8a766ca8b7e850b5.css",
+      "main-07ac70d1c556f6a34816.js",
+      "main-ecd6b0ecbf3c0501e563.html"
+    ]
+  }
+]

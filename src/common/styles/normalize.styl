@@ -1,0 +1,47 @@
+.zn--wrapper
+  font-size 16px
+
+  if (__OPPO__)
+    font-family OPPOSans-Ver2-Regular, OPPOSans-Regular, 'PingFang SC', 'Hiragino Sans GB', 'STHeiti', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
+
+  {font-regular}
+
+  *
+    box-sizing border-box
+
+  a
+    text-decoration none
+
+  img
+    display block
+    max-width initial
+
+  canvas img
+    display none
+
+  video
+    display block
+    max-width initial
+
+  // [data-bg] 在 lazyload 开始加载后会加上 [data-ll-status] 属性
+  figure,
+  div
+    &[data-ll-status]
+      background-repeat no-repeat
+      background-size cover
+
+  br
+    font-family 'Open Sans', '-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'Helvetica', 'Roboto', 'Arial', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', 'Microsoft Jhenghei', 'sans-serif'
+
+  if (__OPPO__)
+    h1
+      // h1 只用作 SEO，设置为不可见
+      position absolute
+      overflow hidden
+      width 1px
+      height 1px
+      border none
+      margin 0
+      padding 0
+      clip rect(1px, 1px, 1px, 1px)
+      clip-path inset(0 0 99.9%)

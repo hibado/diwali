@@ -1,0 +1,13 @@
+/**
+ * common/styles/auto/index.styl
+ * 在 js 中 import 'xxx.styl'，本文件都会被自动加入到其内容的上方，
+ * 故本文件中的内容可能被多次 import，应避免加入实际会编译成 CSS 的代码，
+ * 而只包含 mixin、function、variable、block 定义等多次 import 无副作用的内容。
+ */
+
+@import './color.styl'
+@import './media.styl'
+@import './transform.styl'
+@import './font.styl'
+
+/** 注意！如果在浏览器中发现这上方存在有效的 css 代码，应将其源码移到别处 */

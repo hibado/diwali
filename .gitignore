@@ -1,0 +1,12 @@
+.DS_Store
+.cache
+node_modules/
+package-lock.json
+dist/
+*.log
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/i18n-ally-custom-framework.yml

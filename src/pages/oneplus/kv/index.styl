@@ -1,0 +1,6 @@
+.section
+  width 100vw
+  height 100vh
+  for i in 1..8
+    &:nth-child({i})
+      background mix(#000, #fff, min(i * 10%, 100%))

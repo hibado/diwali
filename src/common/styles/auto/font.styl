@@ -1,0 +1,68 @@
+UNLESS_AEM($no, $yes)
+  if (__AEM__)
+    $yes
+  else
+    $no
+
+IF_AEM($yes, $no)
+  UNLESS_AEM($no, $yes)
+
+if (__OPPO__)
+  font-bold =
+    font-variation-settings 'wght' 1000
+  font-medium =
+    font-variation-settings 'wght' 750
+  font-regular =
+    font-variation-settings 'wght' 550
+  font-light =
+    font-variation-settings 'wght' 350
+  // extra light
+  font-x-light =
+    font-variation-settings 'wght' 200
+  font-extra-light =
+    {font-x-light}
+
+if (__ONEPLUS__)
+  font-regular =
+    if (__EN__)
+      font-family UNLESS_AEM('Roman-55', 'Roman-55'), 'Helvetica Neue', Helvetica, Arial, sans-serif
+    else
+      font-family 'OnePlusComplexW5', Microsoft Yahei, sans-serif
+  font-medium =
+    if (__EN__)
+      font-family UNLESS_AEM('Medium-65', 'Medium-65'), 'Helvetica Neue', Helvetica, Arial, sans-serif
+    else
+      font-family 'OnePlusComplexW5', Microsoft Yahei, sans-serif
+  font-bold =
+    if (__EN__)
+      font-family UNLESS_AEM('Medium-65', 'SlateForOnePlusBold'), 'Helvetica Neue', Helvetica, Arial, sans-serif
+    else
+      {font-medium}
+  font-light =
+    if (__EN__)
+      font-family UNLESS_AEM('Light-45', 'SlateForOnePlusLight'), 'Helvetica Neue', Helvetica, Arial, sans-serif
+    else
+      {font-regular}
+  font-x-light =
+    {font-light}
+  font-extra-light =
+    {font-x-light}
+
+g--font($s, $h, $p = null, $unit = unit($s) || px, $minPCSize = null)
+  $s = unit($s, '')
+  line-height round(($h / $s), 2)
+
+  if ($unit != 'rpx' || type($minPCSize) != 'number')
+    font-size s('%s%s', $s, unquote($unit))
+  else
+    // 确保 PC 上字体不会过小
+    font-size $s px
+
+    +match-1440()
+      font-size round(max($minPCSize, ($s * $ratio-1440 / $ratio-1920))) px
+
+    +match-1024()
+      font-size round(max($minPCSize, ($s * $ratio-1024 / $ratio-1920))) px
+
+  if (type($p) != 'null')
+    letter-spacing round(($p / $s), 4) em

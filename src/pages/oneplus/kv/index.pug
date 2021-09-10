@@ -1,0 +1,14 @@
+mixin section-kv()
+  #section-kv.section(data-nav="kv")
+    h2= t('oneplus:kv.title')
+    p #{t('oneplus:kv.desc')}
+    -
+      const copy = t('oneplus:kv')
+    p 或者是
+    h2 #{copy.title}
+    p= copy.desc
+    p 插件效果会失效
+    button 按钮
+    img(@src="~@@/images/kv/stars.jpg")
+  each i in Array.from(Array(5).keys())
+    .section(id=`section-${i}` data-nav=i data-theme-dark=(i % 2)) #{i}

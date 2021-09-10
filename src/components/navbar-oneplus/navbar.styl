@@ -1,0 +1,244 @@
+$nav-height = 50px
+$nav-height-ls = 60px
+$black = #000
+$white = #FFF
+
+// TODO: 用 mixin 接收参数
+#navbar
+  $color-button = #001EFF
+  $bg-opacity = .9
+  $bg-light-color = alpha(#FFF, $bg-opacity)
+  $bg-light = $bg-light-color
+  $bg-dark = alpha(#000, $bg-opacity)
+  $li-margin = 20rpx
+
+  color #000
+  cursor default
+  height ($nav-height-ls + 1px)
+  left 0
+  position sticky
+  top -1px
+  transition background .3s ease
+  width 100%
+  z-index 90
+  user-select none
+
+  +pc()
+    overflow hidden
+
+  +mo()
+    height ($nav-height + 1px)
+
+  ul,
+  li
+    align-items center
+    display flex
+    justify-content center
+
+  ul + ul,
+  ul + li,
+  li + ul,
+  li + li
+    margin-left $li-margin
+
+  .wrapper,
+  .inner
+    font-size-height(14, 17)
+
+    color #000
+
+  .wrapper + .wrapper
+    +mo()
+      margin-left 16mpx
+
+  .inner
+    cursor pointer
+    white-space nowrap
+    align-items center
+    display flex
+    transition color .3s ease
+
+  .nav-container
+    display flex
+    height 100%
+    justify-content space-between
+    margin 0 auto
+    padding 0 20px
+    position relative
+    width 100%
+    border 1px solid alpha(#000, .1)
+    border-left none
+    border-right none
+    transform translateY(-101%)
+    background #fff
+
+    @media $portrait
+      padding 0 2.7778vw
+
+    /.sticked&
+      background $bg-light
+
+      /[data-theme='dark']&
+        background $bg-dark
+
+    /[data-theme='dark']&
+      background $black
+      border-color alpha($white, .1)
+
+      &,
+      .inner
+        color $white
+
+    /.show&
+      transition transform .6s ease-out
+      transform translateY(0)
+
+  .mask
+    background alpha(#fdfdfd, .9)
+    transition background .3s ease
+
+    // 暗色主题，遮罩为暗色
+    /[data-theme='dark']&
+      background alpha(#151515, .9)
+
+  .products,
+  .links,
+  .buttons
+    align-items center
+    min-width 0
+
+  .products
+    flex 1 1 0%
+    justify-content flex-start
+
+    +mo()
+      z-index 3
+
+    .divider,
+    .active
+      .inner
+        cursor default
+
+  .arrow
+    margin-right 20mpx
+    width 20mpx
+    height 20mpx
+    transition transform .3s
+
+    /[data-theme='dark']&
+      g path
+        fill #fff
+
+  .links
+    flex 0 0 auto
+    justify-content flex-end
+    position relative
+
+    +mo()
+      position absolute
+      top calc(100% + 1px)
+      left 0
+      height 100%
+      margin-left 0
+      padding 0 2.7778vw
+      width 100%
+      overflow-x scroll
+      justify-content flex-start
+      opacity 0
+      pointer-events none
+      background $bg-light
+      border-bottom 1px solid alpha(#000, .1)
+      // firefox 隐藏滚动条
+      scrollbar-width none
+
+      /[data-theme='dark']&
+        background $bg-dark
+        border-color alpha($white, .1)
+
+      &.show
+        opacity 1
+        pointer-events auto
+        transition opacity .3s
+
+        +ul .arrow
+          transform rotate(180deg)
+
+      // chrome 隐藏滚动条
+      &::-webkit-scrollbar
+        display none
+
+    .indicator
+      position absolute
+      top 44px
+      height 2px
+      width 100px
+      left 0
+      content ''
+      transform scaleX(0)
+      transition transform .3s
+      transform-origin left
+      overflow hidden
+
+      +mo()
+        top 39px
+
+      &::before
+        content ''
+        background $color-button
+        position absolute
+        width 100%
+        height 100%
+
+        +pc()
+          transform translateX(-100%)
+          transition transform .4s
+
+      &.show::before
+        transform none
+
+    +mo()
+      &::after
+        content ''
+        flex 0 0 auto
+        width 2.7778vw
+        height 100%
+
+    .wrapper
+      position relative
+
+      &:hover::after
+        opacity 1
+
+  .buttons
+    flex 0 0 auto
+    justify-content flex-end
+
+    .button
+      overflow hidden
+      position relative
+      min-width 70px
+
+      .inner
+        background $color-button
+        border-radius 2px
+        color #fff
+        height 36px
+        line-height 1
+        padding 0 10px
+
+  .links[data-active=''],
+  .links:not([data-active])
+    .default
+      pointer-events none
+
+      &::after
+        opacity 1
+
+  $cnt = $nav-anchor-cnt > 0 ? $nav-anchor-cnt : 10
+
+  for i in 1 .. $cnt
+    .links[data-active={s('"%s"', i)}] > .wrapper:nth-child({i})
+      pointer-events none
+
+      &::after
+        opacity 1

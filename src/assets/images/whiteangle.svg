@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="8px" height="4px" viewBox="0 0 8 4" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Symbols</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.600000024">
+        <g id="triangle" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Symbols">
+                <g id="navi">
+                    <g id="Group">
+                        <polygon id="Triangle" transform="translate(4.000000, 2.000000) rotate(180.000000) translate(-4.000000, -2.000000) " points="4 0 8 4 0 4"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,9 @@
+mixin close()
+  .g--popup-close
+    svg.inner(width='12px' height='12px' viewBox='0 0 12 12')&attributes(attributes)
+      g(stroke='none' stroke-width='1' fill='none' fill-rule='evenodd')
+        polygon(points='12 1.39534884 7.39506977 5.99972093 12 10.6046512 10.6046512 12 5.99972093 7.39506977 1.39534884 12 0 10.6046512 4.60437209 5.99972093 1.25630766e-12 1.39534884 1.39534884 1.43578018e-12 5.99972093 4.60437209 10.6046512 0')
+
+#zn--video-modal.g--popup-container
+  .g--video-wrapper
+    +close()

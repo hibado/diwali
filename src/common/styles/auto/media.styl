@@ -1,0 +1,72 @@
+@import './media.gen.styl'
+
+$portrait = '(max-width: 1023px)'
+$landscape = '(min-width: 1024px)'
+ls = $landscape
+pt = $portrait
+$1280 = $1024
+$2560 = '(min-width: 2400px)'
+
+match-media($alias)
+  $media = lookup('$' + $alias)
+  if (type($media) != 'string')
+    $error = '找不到 media 定义: $' + $alias
+    p(selector() + ' { +' + called-from + '(' + $alias + ') }: ' + $error)
+    error($error)
+
+  @media $media
+    // 嵌套 @media 后，`&` 选择器会出问题，通过 `/{seclector()}` 来修复
+    /{selector()}
+      {block}
+
+mo($alias = null)
+  +match-media(type($alias) == 'null' ? 'portrait' : $alias)
+    {block}
+
+pc($alias = null)
+  +match-media(type($alias) == 'null' ? 'landscape' : $alias)
+    {block}
+
+match-360()
+  +mo(360)
+    {block}
+
+match-768()
+  +mo(768)
+    {block}
+
+match-1920()
+  +pc(1920)
+    {block}
+
+match-1440()
+  +pc(1440)
+    {block}
+
+match-1024()
+  +pc(1024)
+    {block}
+
+match-1280()
+  +match-1024()
+    {block}
+
+match-2560()
+  +pc(2560)
+    {block}
+
+match-mo()
+  +mo()
+    {block}
+
+match-pc()
+  +pc()
+    {block}
+
+match-pt()
+  +match-mo()
+    {block}
+
+match-ls()
+  +match-pc()
+    {block}

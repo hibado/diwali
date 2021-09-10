@@ -1,0 +1,10 @@
+# 此文件中的 globals 经过 ../../../../scripts/gen-env-declarations.js 根据 .env.yaml 处理：
+#   请勿删除 __AUTO_GENERATED__ 注释，脚本根据此注释判断字段是否由脚本生成；
+#   手动添加的字段不受影响，在重新生成的过程中会被保留。
+
+globals:
+  BOOL: readonly # __AUTO_GENERATED__
+  NUM: readonly # __AUTO_GENERATED__
+  STR: readonly # __AUTO_GENERATED__
+  __TGT_en: readonly # __AUTO_GENERATED__
+  __TGT_zh: readonly # __AUTO_GENERATED__

@@ -1,0 +1,81 @@
+mixin text-title(first, second)
+  h2.g--text-title&attributes(attributes)
+    span(class=attributes['child-class'])!= first
+    if (second)
+      span(class=attributes['child-class'])!= second
+
+mixin text-detail(text)
+  p.g--text-detail&attributes(attributes)!= text
+
+mixin text-keywords(keywords)
+  ul.g--text-keywords&attributes(attributes)
+    each value, key in keywords
+      li.g--text-keyword
+        if (value instanceof Array)
+          if (value[1])
+            span.value !{value[0]}#[sub !{value[1]}]
+          else
+            span.value !{value[0]}
+        else
+          span.value !{value}
+        if (value[2])
+          span.key !{value[2]}
+        else
+          span.key= key
+
+mixin text-container({ name, titles, detail, keywords })
+  .g--text-container.ta--group&attributes(attributes)
+    if titles[1]
+      +text-title(titles[0], titles[1])(child-class="ta--item")
+    else
+      +text-title(titles)(child-class="ta--item")
+    if (detail)
+      +text-detail(detail).with-margin.ta--item
+    if (keywords)
+      +text-keywords(keywords).with-margin.ta--item
+    if (block)
+      block
+
+//- 标题和内容的 transformY 一样
+mixin text-container-1({ name, titles, detail, keywords })
+  .g--text-container.ta--group-1&attributes(attributes)
+    +text-title(titles)(child-class="ta--item-1")
+    if (detail)
+      +text-detail(detail).with-margin.ta--item-1
+    if (keywords)
+      +text-keywords(keywords).with-margin.ta--item-1
+    if (block)
+      block
+
+mixin text-keywords-hima(keywords)
+  ul.g--text-keywords-hima&attributes(attributes)
+    each value, key in keywords
+      li.g--text-keyword-hima
+        if (value instanceof Array)
+          if (value[1])
+            span.title !{value[0]}
+            span.unit !{value[1]}
+          else
+            span.title !{value[0]}
+        else
+          span.title !{value}
+        if (value[2])
+          .attr !{value[2]}
+        else
+          .attr= key
+
+//- 标题和内容的 tansformY 不一样
+mixin text-container-hima({ name, titles, detail, keywords })
+  .g--text-container.ta--group.ta--group-hima&attributes(attributes)
+    .content-wrapper
+      if titles[1]
+        +text-title(titles[0], titles[1])(child-class="ta--item")
+      else
+        +text-title(titles)(child-class="ta--item")
+      if (detail)
+        +text-detail(detail).with-margin.ta--item
+    .keyword-wrappeer
+      if (keywords)
+        +text-keywords-hima(keywords).with-margin.ta--item
+    if (block)
+      block

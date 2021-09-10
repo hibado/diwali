@@ -1,0 +1,48 @@
+// 布局上的一些类
+.full
+  width 100%
+  height 100%
+
+.full-w
+  width 100%
+
+.full-h
+  height 100%
+
+.full-screen
+  height 100vh
+
+// 根据导航栏高度做的计算，除去导航栏的全屏
+.full-screen-nav
+  height calc(100vh - 121px)
+
+  +mo()
+    height calc(100vh - 101px)
+
+// flex 布局
+.flex
+  display flex
+
+.flex.align-center
+  align-items center
+
+.flex.content-center
+  justify-content center
+
+// 相对定位和绝对定位
+.rel
+  position relative
+
+.abs
+  position absolute
+
+.abs.clip
+  top 0
+  left 0
+
+.fixed
+  position fixed
+
+.clip
+  top 0
+  left 0

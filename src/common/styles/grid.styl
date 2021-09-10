@@ -1,0 +1,30 @@
+.g--container,
+.g--container-ls,
+.g--container-pt,
+.g--wrapper
+  margin 0 auto
+
+// 各个尺寸下的断点宽度
+.g--container,
+.g--container-ls
+  width 1312rpx
+
+.g--container,
+.g--container-pt
+  width 320mpx
+
++mo()
+  .g--pt-hidden
+    display none !important
+
++pc()
+  .g--ls-hidden
+    display none !important
+
++mo(360)
+  .g--mb-hidden
+    display none !important
+
++mo('not-360')
+  .g--mb-show
+    display none !important

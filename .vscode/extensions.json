@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "sysoev.language-stylus",
+    "thisismanta.stylus-supremacy",
+    "esbenp.prettier-vscode",
+    "amandeepmittal.pug",
+    "streetsidesoftware.code-spell-checker",
+    "mike-co.import-sorter",
+    "lokalise.i18n-ally",
+    "redhat.vscode-yaml",
+    "wk-j.save-and-run"
+  ]
+}

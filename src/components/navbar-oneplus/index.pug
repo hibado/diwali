@@ -1,0 +1,37 @@
+mixin navbar({ products = [], links = {}, buttons = [], noBorder = false } = {})
+  nav#navbar.zn--wrapper&attributes(attributes)(class= noBorder ? 'no-border' : undefined)
+    .nav-container
+      .mask.g--ls-hidden
+      - var productActive = products.find(({ active }) => active)
+      - var linkDefault = links.pre && links.pre.find((link) => link.default)
+      ul.products
+        each product, i in products
+          if (i > 0)
+            li.wrapper.divider: span.inner |
+          li.wrapper.product(class=product.active ? 'active' : '')
+            if (product.active)
+              span.inner!= product.name
+            else
+              a.inner(@t @t:href href=(product.href || `#link.product-${i}`))!= product.name
+      ul.links
+        i.indicator
+        if (links.pre)
+          each link, i in links.pre
+            li.wrapper.link.pre(class=link.default ? 'default' : '' data-anchor=(link.anchor || ''))
+              a.inner(@t @t:href href=(link.href || `#link.pre-${i}`))!= link.name
+        if (links.post)
+          each link, i in links.post
+            li.wrapper.link.post(class=link.default ? 'default' : '' data-anchor=(link.anchor || ''))
+              a.inner(@t @t:href href=(link.href || `#link.post-${i}`))!= link.name
+      //- 移动端 展开/收起按钮
+      ul.g--ls-hidden
+        svg.arrow(width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg')
+          mask#a(maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='20')
+            path(fill='#C4C4C4' d='M0 0h20v20H0z')
+          g(mask='url(#a)')
+            path(fill-rule='evenodd' clip-rule='evenodd' d='M1.5 5.35L2.825 4l7.285 7.425L17.175 4 18.5 5.35l-7.8 8.1a.92.92 0 01-1.326 0L1.5 5.35z' fill='#000')
+
+      ul.buttons
+        - let button = buttons[0]
+        li.wrapper.button.buy(data-gtm-cta data-gtm-label=button.name)
+          a.inner(@t @t:href href=(button.href || `#link.button-buy`))!= button.name

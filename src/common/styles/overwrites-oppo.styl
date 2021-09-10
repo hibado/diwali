@@ -1,0 +1,20 @@
+// 覆盖 OPPO 脚手架的样式
+if (__OPPO__)
+  #oc-header
+    // header 会超出屏幕宽度，导致水平方向可以滚动
+    +match-768()
+      overflow hidden
+
+    +match-mo()
+      &.fixed
+        visibility hidden
+
+  #oc-wrapper
+    // 使原生 sticky 生效
+    overflow visible
+
+  #footer
+    overflow-x hidden
+
+  body.no-scroll
+    overflow-y hidden

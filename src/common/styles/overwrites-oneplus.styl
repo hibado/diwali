@@ -1,0 +1,31 @@
+// 消除一加脚手架样式的影响
+if (__ONEPLUS__)
+  // html 上的 overflow 需要在 loading 动效过后移除
+  body
+    overflow unset
+    line-height normal
+
+    &.hide-body
+      overflow hidden
+
+  #header .nav
+    z-index 99
+
+    .nav-right > li
+      &,
+      a,
+      .info
+        margin-right 0
+
+  #footer > .container-infinite > .container-text
+    overflow hidden
+
+  #main-wrapper
+    .container
+      padding 0
+      margin 0
+      width auto
+
+      &::before,
+      &::after
+        content none
