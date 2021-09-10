@@ -19,8 +19,6 @@ import { nextFrame } from '../utils/raf';
 import { initStickyElements } from './sticky';
 
 export function beforeReady() {
-  removeElementAll(isPortrait() ? '.pt-hidden,.g--pt-hidden' : '.ls-hidden,.g--ls-hidden');
-
   bindVH();
   if (!isPortrait()) {
     bindVW();

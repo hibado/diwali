@@ -1,8 +1,8 @@
-import { isPortrait } from '@/common/js/media';
 import { getWindowHeight } from '@/common/js/media/window-size';
 import { CanvasPlayer, ImageSequence, PlayMode } from '@zhinan-oppo/canvas-player';
 import { LoadController } from '@zhinan-oppo/load-controller';
 import { addScrollListener } from '@zhinan-oppo/scroll-handle';
+import { isPortrait } from './media';
 import { createManualLoader } from './lazyload';
 
 /**

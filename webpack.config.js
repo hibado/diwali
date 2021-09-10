@@ -14,4 +14,5 @@ module.exports = {
       ...parseTsConfigPaths(__dirname, 'tsconfig.json'), // 解析 tsconfig.json 中的 paths 以避免重复定义
     },
   },
+  target: ['web', 'es5'],
 };

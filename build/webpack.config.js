@@ -68,6 +68,9 @@ export default async (webpackEnv = {}, args = {}) => {
       filename: '[name]-[hash].js',
       path: path.resolve(ROOT_PATH, 'dist', pathToDist),
       publicPath: env.__AEM__ && env.__ONEPLUS__ ? '{{var:statics_overseas}}/' : './',
+      library: 'createSequencePlayer',
+      libraryTarget: 'umd',
+      libraryExport: 'default',
     },
     resolve: {
       extensions: ['.ts', '.mjs', '.js', '.json'],

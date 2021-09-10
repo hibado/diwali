@@ -9,6 +9,6 @@ mixin section-kv()
     p= copy.desc
     p 插件效果会失效
     button 按钮
-    img(@src="~@@/images/kv/stars.jpg")
+
   each i in Array.from(Array(5).keys())
     .section(id=`section-${i}` data-nav=i data-theme-dark=(i % 2)) #{i}

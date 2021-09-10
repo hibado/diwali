@@ -5,10 +5,7 @@ module.exports = {
     [
       '@babel/preset-env',
       {
-        debug: process.env.NODE_ENV === 'debug',
-        targets: {
-          node: 'current',
-        },
+        useBuiltIns: 'entry',
       },
     ],
   ],

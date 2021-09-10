@@ -1,15 +1,12 @@
-extends ../../layouts/event.pug
-block content
-  -
-    function prefixZero(num, n) {
-      return (Array(n).join(0) + num).slice(-n);
-    }
-  //- 将该元素放置于任意位置，可以取得加载动效的控制权，默认情况下是 dom ready 时自动结束加载
-  input#mark-loading-control(type="hidden" name="mark-loading-control" value="1")
-  main.main
-    canvas#canvas-player
-      - for (let i = 0; i <= 36; i ++)
-        img(@src-p=`~@@/images/laddu/${prefixZero(i, 5)}.png`)
+-
+  function prefixZero(num, n) {
+    return (Array(n).join(0) + num).slice(-n);
+  }
+.zn-wrapper
+  canvas.laddu
+    - for (let i = 0; i <= 36; i ++)
+      img(data-src=`~@@/images/laddu/${prefixZero(i, 5)}.png?{ratio: 0.5}`)
+  canvas.laddu-logo
+    - for (let i = 0; i <= 36; i ++)
+      img(data-src=`~@@/images/laddu-logo/${prefixZero(i, 5)}.png?{ratio: 0.5}`)
 
-
-  //- include ../../components/video/popup/index.pug
